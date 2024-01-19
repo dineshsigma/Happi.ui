@@ -1,0 +1,344 @@
+var getslide = $(".main-box li").length - 1;
+
+var slidecal = 20 / getslide + "%";
+
+$(".box").css({ width: slidecal });
+
+$(".box").click(function () {
+  $(".box").removeClass("active");
+  $(this).addClass("active");
+});
+
+
+            
+
+
+
+  let onload_mobile_animation_mobile = gsap.timeline();
+  onload_mobile_animation_mobile
+    .fromTo(
+      "#sam_front_mobile",
+      { x: 0, y: 0 },
+      { x: -100, y: -100, duration: 1 }
+    )
+   
+
+  let onload_mobile_animation_mobile2 = gsap.timeline();
+  onload_mobile_animation_mobile2
+    .fromTo("#sam_back_mobile", { x: 0, y: 0 }, { x: 100, y: 100, duration: 1 })
+  
+
+  gsap.registerPlugin(ScrollTrigger);
+  // Animate/transform/translate/fade the icons
+  let iconsTimeline_mobile = gsap.timeline({
+    scrollTrigger: {
+      trigger: "#hero1_trigger",
+      start: "top -10",
+      end: "bottom -2000",
+      scrub: 1,
+      toggleActions: "none play none none",
+      onEnter: function () {
+        let onload_mobile_animation2 = gsap.timeline();
+        onload_mobile_animation2.fromTo(
+          "#sam_front_mobile",
+          { x: -100, y: -100 },
+          { x: -600, y: -600, duration: 2 }
+        );
+
+        let onload_mobile_animation22 = gsap.timeline();
+        onload_mobile_animation22.fromTo(
+          "#sam_back_mobile",
+          { x: 100, y: 100 },
+          { x: 600, y: 600, duration: 2 }
+        );
+      },
+
+      onLeave: function () {
+        let onload_mobile_animation2 = gsap.timeline();
+        onload_mobile_animation2.fromTo(
+          "#sam_front_mobile",
+          { x: -600, y: -600 },
+          { x: -100, y: -100, duration: 2 }
+        );
+
+        let onload_mobile_animation22 = gsap.timeline();
+        onload_mobile_animation22.fromTo(
+          "#sam_back_mobile",
+          { x: 600, y: 600 },
+          { x: 100, y: 100, duration: 2 }
+        );
+      },
+      pin: true,
+
+      // markers: true,
+    },
+  });
+  iconsTimeline_mobile
+    .to("#MAIN_TEXT_mobile", { autoAlpha: 1, duration: 1, delay: 0.2 })
+    .to("#mrp_price_mobile", { autoAlpha: 1, duration: 1, delay: 0.4 })
+    .to("#MAIN_TEXT_mobile,#mrp_price_mobile", { y: -100 })
+    .to("#red_line_mobile", { autoAlpha: 1 })
+    .to("#HAPPI_STORE_mobile", { y: -100, autoAlpha: 1 })
+    .to("#SHOP_BTN_mobile", {  transformOrigin: "center", scale:1.8 })
+    .to("#SHOP_BTN_mobile", { y: -100, autoAlpha: 1 })
+    .fromTo(
+      "#DIAMOND_LINES_mobile",
+      { y: -150, scale: 0, transformOrigin: "center", autoAlpha: 0 },
+      { scale: 0, autoAlpha: 1, duration: 0.2, delay: 8 }
+    )
+    .to(
+      "#SHOP_BTN_mobile,#MAIN_TEXT_mobile,#mrp_price_mobile,#mrp_price-2_mobile,#red_line_mobile, #HAPPI_STORE_mobile",
+      { autoAlpha: 0, delay: 2 }
+    )
+    .fromTo(
+      "#DIAMOND_LINES_mobile",
+      5,
+      { scale: 0, transformOrigin: "center" },
+      { scale: 150, transformOrigin: "center" }
+    )
+    
+    .to("#sam_front_mobile,#sam_back_mobile", { autoAlpha: 0 })
+    .to("#DIAMOND_LINES_mobile", { autoAlpha: 0 })
+    .to("#MAIN_TEXT_mobile",{ autoAlpha: 0})
+    .fromTo(
+      "#SMART_OFFER_dual_mobile",
+      5,
+      { y: 150, scale: 0, transformOrigin: "center", autoAlpha: 0 },
+      { autoAlpha: 1, scale: 1, transformOrigin: "center" }
+    )
+    
+
+
+    
+    .fromTo("#SMART_OFFER_dual_mobile", 10, { y: 250 }, { y: -40, delay: 2 })
+    .to(
+      "#MRP-dual_mobile,#cashback-dual_mobile,#minus-1-dual_mobile,#minus-2-dual_mobile,#upgrade_phone-dual_mobile",
+      { autoAlpha: 1, y: -70 }
+    )
+    .fromTo(
+      "#MRP-elem-bg-ele_mobile,#MRP-elem-name1_mobile,#MRP-elem-name2_mobile,#MRP-elem-price_mobile,#minus-1-dual_mobile,#cashback-elem-bg-ele_mobile,#cashback-elem-name1_mobile,#cashback-elem-name2_mobile,#cashback-elem-price_mobile,#minus-2-dual_mobile, #upgrade_phone-elem-bg-ele_mobile,#upgrade_phone-elem-name1_mobile,#upgrade_phone-elem-name2_mobile,#upgrade_phone-elem-price_mobile",
+      5,
+      { scale: 0.02, transformOrigin: "center", autoAlpha: 1 },
+      { scale: 1, transformOrigin: "center", delay: 5 }
+    )
+    .to("#off1-emiss1,#off1-emiss2",{x:10})
+    .to("#offered_price-dual_mobile", { autoAlpha: 1, y: -70 })
+    .to("#offered_price_name_mobile", 3, { autoAlpha: 1, delay: 3 })
+    .to("#offered_price_price_mobile", 3, { autoAlpha: 1 })
+    .to("#offered_price_circle_mobile", 2, { autoAlpha: 1 })
+    .to("#CASHBACKTAG2-dual_mobile", { y: -10, x: -200 })
+    .to("#CASHBACK-TAG1-dual_mobile", { y: -10, x: 200 })
+    .to("#CASHBACKTAG2-dual_mobile", 1, { autoAlpha: 1 })
+    .to("#CASHBACKTAG2-dual_mobile, #CASHBACK-TAG1-dual_mobile", 0.7, { autoAlpha: 1, x: 0,})
+    // .to("#back_strip_9months", 3, { autoAlpha: 1, y: -70,x: 0,delay:2 })
+    .to("#frount_strip_9months", 1, { autoAlpha: 1, x: 0,delay:0.5 })
+      
+    .to("#text_9months_main", 0.5, { x:15, autoAlpha: 1,delay:2 });
+    
+    // .to(".near-by-store h1", 2, { autoAlpha: 1, delay: 1 });
+
+
+    let iconsTimeline2 = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".hero-second-offer",
+        scrub: 1,
+        toggleActions: "none play none none",
+        // start:"top",
+        // end:"top +200", 
+        // markers: true,
+      },
+    });
+    iconsTimeline2
+    .to("#CASHBACKTAG2-dual-O2", { x: -200 })
+    .to("#CASHBACK-TAG1-dual-O2", {  x: 200 })
+    .to(
+      "#MRP-dual-O2, #minus-2-dual-O2, #upgrade_phone-dual-O2",
+      { x: 300, transformOrigin: "center"}
+    )
+    
+    .to("#MRP-dual-O2, #minus-2-dual-O2, #upgrade_phone-dual-O2",1,{autoAlpha:1, scale: 1, transformOrigin: "center", delay:2})
+    .to("#MRP-dual-O2, #minus-2-dual-O2, #upgrade_phone-dual-O2",0.2,{x:0,delay:1})
+    .to("#equals-dual-O2",{autoAlpha:1})
+    .to("#offered_price-dual-O2", 0.3, { autoAlpha: 1})
+    
+    
+    .to("#CASHBACKTAG2-dual-O2,#CASHBACK-TAG1-dual-O2,.near-by-store h1", 0.7, { autoAlpha: 1, x: 0 })
+    .fromTo("#_24_MONTH_S_EMI", 0.5,
+      { scale: 6, transformOrigin: "center", autoAlpha: 0 },
+      { autoAlpha: 1, scale: 1, transformOrigin: "center" } )
+    
+    .to(".near-by-store h1", 3, { autoAlpha: 1, delay: 1 });
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+let two_hundred_mp = gsap.timeline({
+  scrollTrigger: {
+    trigger: "#two-hundred-trigger",
+    start: "top",
+    end: "bottom",
+    scrub: 5,
+    //  markers:true,
+  },
+});
+two_hundred_mp.fromTo("#two-hundred-mp", 5,
+  { scale: 40, transformOrigin: "center", autoAlpha: 0 },
+  { autoAlpha: 1, scale: 1, transformOrigin: "center" }
+);
+
+let two_hundred_mp_part2 = gsap.timeline({
+  scrollTrigger: {
+    trigger: "#two-hundred-trigger-part2",
+    start: "top",
+    end: "bottom",
+    scrub: 5,
+    //  markers:true,
+  },
+});
+two_hundred_mp_part2.fromTo(
+  "#Wow-worthy_resolution",
+  4,
+  { y: -80, autoAlpha: 0 },
+  { autoAlpha: 1, y: -20, delay: 10 }
+);
+
+
+
+
+
+
+function animateValue(id, start, end, duration) {
+  if (start === end) return;
+  var range = end - start;
+  var current = start;
+  var increment = end > start ? 1 : -1;
+  var stepTime = Math.abs(Math.floor(duration / range));
+  var obj = document.getElementById(id);
+  var timer = setInterval(function () {
+    current += increment;
+    let rs_current =
+      current.toLocaleString("en-IN") + "*";
+    obj.innerHTML = rs_current;
+
+    if (current == end) {
+      clearInterval(timer);
+    }
+  }, stepTime);
+}
+
+let costs = [106999, 106499, 105999, 105499, 104999, 104499];
+let emi = [11888, 11833, 11778, 11723, 11668, 11613];
+let emi_day = [396, 394, 392, 390, 388, 386];
+let index = 0;
+
+
+
+setInterval(function () {
+  if (index <= costs.length - 1 && index <= emi.length - 1) {
+    animateValue("my_text_cost", costs[index], costs[index]- 500, 3000);
+    
+    // animateValue("my_text_cost_mobile", costs[index], costs[index] - 500, 2000);
+    
+     animateValue("my_text_emi", emi[index], emi[index]-55, 3000);
+    // animateValue("my_text_emi_mobile", emi[index] + 500, emi[index], 2000);
+
+    animateValue("my_text_emi_day", emi_day[index], emi_day[index]-2, 3000);
+    
+    index++;
+  } else {
+    index = 0;
+    animateValue("my_text_cost", costs[index], costs[index]- 500, 3000);
+    // animateValue("my_text_cost_mobile", costs[index], costs[index] - 500, 2000);
+    
+     animateValue("my_text_emi", emi[index], emi[index]-55, 3000);
+    // animateValue("my_text_emi_mobile", emi[index] + 500, emi[index], 2000);
+    animateValue("my_text_emi_day", emi_day[index], emi_day[index]-2, 3000);
+
+    index++;
+  }
+}, 6000);
+
+
+let costs2 = [116999, 116499, 115999, 115499, 114999, 114499];
+let emi2 = [4874, 4854, 4834, 4814, 4794, 4774];
+let emi2_day = [163, 162, 161, 160, 159, 158];
+let index2 = 0;
+
+setInterval(function () {
+  if (index2 <= costs2.length - 1 && index2 <= emi2.length - 1) {
+    animateValue("my_text_cost2", costs2[index2], costs2[index2]-500, 3000);
+    
+    // animateValue("my_text_cost_mobile", costs[index], costs[index] - 500, 2000);
+    
+    animateValue("my_text_emi2", emi2[index2], emi2[index2]-20, 3000);
+    // animateValue("my_text_emi_mobile", emi[index] + 500, emi[index], 2000);
+    animateValue("my_text_emi2_day", emi2_day[index2], emi2_day[index2]-1, 3000);
+    
+    index2++;
+  } else {
+    index2 = 0;
+    animateValue("my_text_cost2", costs2[index2], costs2[index2]-500, 3000);
+    // animateValue("my_text_cost_mobile", costs[index], costs[index] - 500, 2000);
+    
+    animateValue("my_text_emi2", emi2[index2], emi2[index2]-20, 3000);
+    // animateValue("my_text_emi_mobile", emi[index] + 500, emi[index], 2000);
+     animateValue("my_text_emi2_day", emi2_day[index2], emi2_day[index2]-1, 3000);
+
+    index2++;
+  }
+}, 6000);
+
+
+
+let  images_effect_trigger_ss55 = gsap.timeline();
+
+let sections = gsap.utils.toArray(".panel");
+
+images_effect_trigger_ss55.to(sections, {
+  xPercent: -100 * (sections.length - 1),
+  ease: "none",
+  scrollTrigger: {
+      trigger: ".containers",
+      pin: true,
+      scrub: 1,
+      snap:{
+        snapTo: 1 / (sections.length - 1),
+        duration:0.01,
+        delay:0.001
+      },
+      start:"top top",
+      end:"500%"
+  },
+  // markers:true
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
